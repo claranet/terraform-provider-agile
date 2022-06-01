@@ -27,7 +27,7 @@ ex.
 
 terraform {
   required_providers {
-    aci = {
+    agile = {
       source = "claranet/agile"
     }
   }
@@ -62,4 +62,12 @@ In order to run the full suite of Acceptance tests, run `make testacc`.
 
 ```sh
 $ make testacc
+```
+
+### Using Provider Local
+
+```shell
+export TERRAFORM_AGILE_VERSION=0.0.1
+make build-local
+terraform init -plugin-dir=${HOME}/.terraform.d/plugin-cache
 ```

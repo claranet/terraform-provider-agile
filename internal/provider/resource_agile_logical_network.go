@@ -55,7 +55,7 @@ func resourceAgileLogicalNetwork() *schema.Resource {
 				ValidateFunc: validation.IsUUID,
 			},
 			"fabrics_id": {
-				Type:        schema.TypeList,
+				Type:        schema.TypeSet,
 				Description: "ID of the fabrics associated with the logical network. If the VPC is not a public VPC, the fabric must have been added by the tenant.",
 				Optional:    true,
 				MinItems:    0,
@@ -213,7 +213,7 @@ func NewLogicalNetworkAttributes(d *schema.ResourceData) (*models.LogicalNetwork
 	}
 
 	if val, ok := d.GetOk("fabrics_id"); ok {
-		logicalNetworkAttr.FabricId = tools.ExtractSliceOfStrings(val.([]interface{}))
+		logicalNetworkAttr.FabricId = tools.ExtractSliceOfStrings(val.(*schema.Set).List())
 	}
 
 	if _, ok := d.GetOk("additional"); ok {

@@ -131,7 +131,7 @@ func resourceAgileTenant() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"external_gateway_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Description: "External gateway that can be used by the tenant. UUID Version 4 Format.",
 							Optional:    true,
 							Elem: &schema.Schema{
@@ -140,7 +140,7 @@ func resourceAgileTenant() *schema.Resource {
 							},
 						},
 						"fabric_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Description: "Fabrics network that can be used by the tenant. UUID Version 4 Format.",
 							Optional:    true,
 							Elem: &schema.Schema{
@@ -149,7 +149,7 @@ func resourceAgileTenant() *schema.Resource {
 							},
 						},
 						"vmm_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Description: "VMMs that can be used by the tenant. This parameter is required only in network virtualization - computing scenarios. UUID Version 4 Format.",
 							Optional:    true,
 							Elem: &schema.Schema{
@@ -158,7 +158,7 @@ func resourceAgileTenant() *schema.Resource {
 							},
 						},
 						"dhcp_group_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Description: "DHCP groups that can be used by the tenant to dynamically allocate IP addresses to VMs in VPC services. UUID Version 4 Format.",
 							Optional:    true,
 							Elem: &schema.Schema{
@@ -176,25 +176,25 @@ func resourceAgileTenant() *schema.Resource {
 			}),
 			// Agile Controller Bug: Fields can't back to null
 			customdiff.ForceNewIfChange("res_pool.0.external_gateway_ids", func(ctx context.Context, old, new, meta interface{}) bool {
-				if old != nil && (new == nil || len(new.([]interface{})) == 0) {
+				if old != nil && (new == nil || len(new.(*schema.Set).List()) == 0) {
 					return true
 				}
 				return false
 			}),
 			customdiff.ForceNewIfChange("res_pool.0.fabric_ids", func(ctx context.Context, old, new, meta interface{}) bool {
-				if old != nil && (new == nil || len(new.([]interface{})) == 0) {
+				if old != nil && (new == nil || len(new.(*schema.Set).List()) == 0) {
 					return true
 				}
 				return false
 			}),
 			customdiff.ForceNewIfChange("res_pool.0.vmm_ids", func(ctx context.Context, old, new, meta interface{}) bool {
-				if old != nil && (new == nil || len(new.([]interface{})) == 0) {
+				if old != nil && (new == nil || len(new.(*schema.Set).List()) == 0) {
 					return true
 				}
 				return false
 			}),
 			customdiff.ForceNewIfChange("res_pool.0.dhcp_group_ids", func(ctx context.Context, old, new, meta interface{}) bool {
-				if old != nil && (new == nil || len(new.([]interface{})) == 0) {
+				if old != nil && (new == nil || len(new.(*schema.Set).List()) == 0) {
 					return true
 				}
 				return false
@@ -358,19 +358,20 @@ func NewTenantAttributes(d *schema.ResourceData) (*models.TenantAttributes, diag
 		resPoolAttr := models.TenantResPool{}
 
 		if resPoolItem["external_gateway_ids"] != nil {
-			resPoolAttr.ExternalGatewayIds = tools.ExtractSliceOfStrings(resPoolItem["external_gateway_ids"].([]interface{}))
+			resPoolAttr.ExternalGatewayIds = tools.ExtractSliceOfStrings(resPoolItem["external_gateway_ids"].(*schema.Set).List())
 		}
 
 		if resPoolItem["fabric_ids"] != nil {
-			resPoolAttr.FabricIds = tools.ExtractSliceOfStrings(resPoolItem["fabric_ids"].([]interface{}))
+			resPoolAttr.FabricIds = tools.ExtractSliceOfStrings(resPoolItem["fabric_ids"].(*schema.Set).List())
+
 		}
 
 		if resPoolItem["vmm_ids"] != nil {
-			resPoolAttr.VmmIds = tools.ExtractSliceOfStrings(resPoolItem["vmm_ids"].([]interface{}))
+			resPoolAttr.VmmIds = tools.ExtractSliceOfStrings(resPoolItem["vmm_ids"].(*schema.Set).List())
 		}
 
 		if resPoolItem["dhcp_group_ids"] != nil {
-			resPoolAttr.DhcpGroupIds = tools.ExtractSliceOfStrings(resPoolItem["dhcp_group_ids"].([]interface{}))
+			resPoolAttr.DhcpGroupIds = tools.ExtractSliceOfStrings(resPoolItem["dhcp_group_ids"].(*schema.Set).List())
 		}
 		tenantAttr.ResPool = &resPoolAttr
 	}
