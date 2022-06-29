@@ -23,14 +23,14 @@ data "agile_dhcp_group" "example" {
 
 ### Required
 
-- **name** (String) DHCP server name.
+- `name` (String) DHCP server name.
 
 ### Read-Only
 
-- **description** (String) DHCP server description.
-- **id** (String) DHCP server ID.
-- **logic_router_id** (String) ID of the logical router that the DHCP server belongs to.
-- **producer** (String) Producer.
-- **vrf_name** (String) VRF Name.
+- `description` (String) DHCP server description.
+- `id` (String) DHCP server ID.
+- `logic_router_id` (String) ID of the logical router that the DHCP server belongs to.
+- `producer` (String) Producer.
+- `vrf_name` (String) VRF Name.
 
 

@@ -23,13 +23,13 @@ data "agile_tenant" "example" {
 
 ### Required
 
-- **name** (String) Tenant name.
+- `name` (String) Tenant name.
 
 ### Read-Only
 
-- **description** (String) Tenant description.
-- **id** (String) Tenant ID.
-- **multicast_capability** (Boolean) Whether the multicast capability is supported.
-- **producer** (String) Producer.
+- `description` (String) Tenant description.
+- `id` (String) Tenant ID.
+- `multicast_capability` (Boolean) Whether the multicast capability is supported.
+- `producer` (String) Producer.
 
 

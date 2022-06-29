@@ -42,29 +42,29 @@ resource "agile_tenant" "example" {
 
 ### Required
 
-- **name** (String) Tenant name.
-- **quota** (Set of Object) (see [below for nested schema](#nestedatt--quota))
+- `name` (String) Tenant name.
+- `quota` (Set of Object) (see [below for nested schema](#nestedatt--quota))
 
 ### Optional
 
-- **description** (String) Tenant description. Defaults to ``.
-- **multicast_quota** (Block List, Max: 1) (see [below for nested schema](#nestedblock--multicast_quota))
-- **producer** (String) Producer. This parameter is optional. If it is specified by the user, the specified value is used. The character string starting with component is reserved. If no value is specified, the default value default is used. Defaults to `default`.
-- **res_pool** (Block List, Max: 1) (see [below for nested schema](#nestedblock--res_pool))
+- `description` (String) Tenant description. Defaults to ``.
+- `multicast_quota` (Block List, Max: 1) (see [below for nested schema](#nestedblock--multicast_quota))
+- `producer` (String) Producer. This parameter is optional. If it is specified by the user, the specified value is used. The character string starting with component is reserved. If no value is specified, the default value default is used. Defaults to `default`.
+- `res_pool` (Block List, Max: 1) (see [below for nested schema](#nestedblock--res_pool))
 
 ### Read-Only
 
-- **id** (String) Tenant ID.
-- **multicast_capability** (Boolean) Whether to enable the multicast capability for the tenant. By default, the multicast capability of a tenant is disabled.
+- `id` (String) Tenant ID.
+- `multicast_capability` (Boolean) Whether to enable the multicast capability for the tenant. By default, the multicast capability of a tenant is disabled.
 
 <a id="nestedatt--quota"></a>
 ### Nested Schema for `quota`
 
 Required:
 
-- **logic_router_num** (Number)
-- **logic_switch_num** (Number)
-- **logic_vas_num** (Number)
+- `logic_router_num` (Number)
+- `logic_switch_num` (Number)
+- `logic_vas_num` (Number)
 
 
 <a id="nestedblock--multicast_quota"></a>
@@ -72,8 +72,8 @@ Required:
 
 Optional:
 
-- **acl_num** (Number) Maximum number of ACL rules that can be created for the tenant when the multicast capability is enabled. The value is an integer in the range from 0 to 1000
-- **acl_rule_num** (Number) Maximum number of ACL rules that can be created for the tenant when the multicast capability is enabled. The value is an integer in the range from 0 to 3000
+- `acl_num` (Number) Maximum number of ACL rules that can be created for the tenant when the multicast capability is enabled. The value is an integer in the range from 0 to 1000
+- `acl_rule_num` (Number) Maximum number of ACL rules that can be created for the tenant when the multicast capability is enabled. The value is an integer in the range from 0 to 3000
 
 
 <a id="nestedblock--res_pool"></a>
@@ -81,10 +81,10 @@ Optional:
 
 Optional:
 
-- **dhcp_group_ids** (List of String) DHCP groups that can be used by the tenant to dynamically allocate IP addresses to VMs in VPC services. UUID Version 4 Format.
-- **external_gateway_ids** (List of String) External gateway that can be used by the tenant. UUID Version 4 Format.
-- **fabric_ids** (List of String) Fabrics network that can be used by the tenant. UUID Version 4 Format.
-- **vmm_ids** (List of String) VMMs that can be used by the tenant. This parameter is required only in network virtualization - computing scenarios. UUID Version 4 Format.
+- `dhcp_group_ids` (Set of String) DHCP groups that can be used by the tenant to dynamically allocate IP addresses to VMs in VPC services. UUID Version 4 Format.
+- `external_gateway_ids` (Set of String) External gateway that can be used by the tenant. UUID Version 4 Format.
+- `fabric_ids` (Set of String) Fabrics network that can be used by the tenant. UUID Version 4 Format.
+- `vmm_ids` (Set of String) VMMs that can be used by the tenant. This parameter is required only in network virtualization - computing scenarios. UUID Version 4 Format.
 
 ## Import
 

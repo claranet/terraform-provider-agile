@@ -23,15 +23,15 @@ data "agile_fabric" "example" {
 
 ### Required
 
-- **name** (String) Fabric name.
+- `name` (String) Fabric name.
 
 ### Read-Only
 
-- **description** (String) Fabric description.
-- **id** (String) Fabric ID.
-- **micro_segment** (Boolean) Whether to enable microsegmentation.
-- **multicast_capability** (Boolean) Whether the multicast capability is supported.
-- **network_type** (String) Fabric VXLAN type. The value is Distributed or Centralized.
-- **physical_network_mode** (String) Fabric networking type. Only VXLAN is supported.
+- `description` (String) Fabric description.
+- `id` (String) Fabric ID.
+- `micro_segment` (Boolean) Whether to enable microsegmentation.
+- `multicast_capability` (Boolean) Whether the multicast capability is supported.
+- `network_type` (String) Fabric VXLAN type. The value is Distributed or Centralized.
+- `physical_network_mode` (String) Fabric networking type. Only VXLAN is supported.
 
 

@@ -23,14 +23,14 @@ data "agile_external_gateway" "example" {
 
 ### Required
 
-- **name** (String) External gateway name.
+- `name` (String) External gateway name.
 
 ### Read-Only
 
-- **description** (String) External gateway description.
-- **gateway_type** (String) External gateway type, which can be Public or Private.
-- **id** (String) External gateway ID.
-- **is_telco_gateway** (Boolean) Indicates if is a Telco cloud gateway.
-- **vrf_name** (String) VRF Name.
+- `description` (String) External gateway description.
+- `gateway_type` (String) External gateway type, which can be Public or Private.
+- `id` (String) External gateway ID.
+- `is_telco_gateway` (Boolean) Indicates if is a Telco cloud gateway.
+- `vrf_name` (String) VRF Name.
 
 

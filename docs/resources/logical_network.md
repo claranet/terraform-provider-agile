@@ -31,28 +31,28 @@ resource "agile_logical_network" "example" {
 
 ### Required
 
-- **name** (String) Logical network name.
+- `name` (String) Logical network name.
 
 ### Optional
 
-- **additional** (Block Set, Max: 1) Additional Settings. (see [below for nested schema](#nestedblock--additional))
-- **description** (String) Logical network description.
-- **fabrics_id** (List of String) ID of the fabrics associated with the logical network. If the VPC is not a public VPC, the fabric must have been added by the tenant.
-- **multicast_capability** (Boolean) Whether the multicast capability is supported. Defaults to `false`.
-- **tenant_id** (String) Tenant to which a logical network (VPC) belongs. If this parameter is left empty, it is a public VPC.
-- **type** (String) Logical network type, which can be Instance or Transit. If this parameter is left empty, the default value is Instance. Defaults to `Instance`.
+- `additional` (Block Set, Max: 1) Additional Settings. (see [below for nested schema](#nestedblock--additional))
+- `description` (String) Logical network description.
+- `fabrics_id` (Set of String) ID of the fabrics associated with the logical network. If the VPC is not a public VPC, the fabric must have been added by the tenant.
+- `multicast_capability` (Boolean) Whether the multicast capability is supported. Defaults to `false`.
+- `tenant_id` (String) Tenant to which a logical network (VPC) belongs. If this parameter is left empty, it is a public VPC.
+- `type` (String) Logical network type, which can be Instance or Transit. If this parameter is left empty, the default value is Instance. Defaults to `Instance`.
 
 ### Read-Only
 
-- **id** (String) Logical network ID.
-- **is_vpc_deployed** (Boolean) Indicates if VPC is deployed
+- `id` (String) Logical network ID.
+- `is_vpc_deployed` (Boolean) Indicates if VPC is deployed
 
 <a id="nestedblock--additional"></a>
 ### Nested Schema for `additional`
 
 Optional:
 
-- **producer** (String) This parameter is optional. If it is specified by the user, the specified value is used. The character string starting with component is reserved. If no value is specified, the default value default is used. Defaults to `default`.
+- `producer` (String) This parameter is optional. If it is specified by the user, the specified value is used. The character string starting with component is reserved. If no value is specified, the default value default is used. Defaults to `default`.
 
 ## Import
 

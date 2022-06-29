@@ -23,24 +23,24 @@ data "agile_logical_network" "example" {
 
 ### Required
 
-- **name** (String) Logical network name.
+- `name` (String) Logical network name.
 
 ### Read-Only
 
-- **additional** (Set of Object) Additional Settings. (see [below for nested schema](#nestedatt--additional))
-- **description** (String) Logical network description.
-- **fabrics_id** (List of String) ID of the fabrics associated with the logical network.
-- **id** (String) Logical network ID.
-- **is_vpc_deployed** (Boolean) Indicates if VPC is deployed
-- **multicast_capability** (Boolean) Whether the multicast capability is supported.
-- **tenant_id** (String) Tenant to which a logical network (VPC) belongs.
-- **type** (String) Logical network type, which can be Instance or Transit.
+- `additional` (Set of Object) Additional Settings. (see [below for nested schema](#nestedatt--additional))
+- `description` (String) Logical network description.
+- `fabrics_id` (List of String) ID of the fabrics associated with the logical network.
+- `id` (String) Logical network ID.
+- `is_vpc_deployed` (Boolean) Indicates if VPC is deployed
+- `multicast_capability` (Boolean) Whether the multicast capability is supported.
+- `tenant_id` (String) Tenant to which a logical network (VPC) belongs.
+- `type` (String) Logical network type, which can be Instance or Transit.
 
 <a id="nestedatt--additional"></a>
 ### Nested Schema for `additional`
 
 Read-Only:
 
-- **producer** (String)
+- `producer` (String)
 
 
