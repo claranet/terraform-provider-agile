@@ -72,6 +72,7 @@ func New(version string) func() *schema.Provider {
 				"agile_tenant":          resourceAgileTenant(),
 				"agile_logical_network": resourceAgileLogicalNetwork(),
 				"agile_logical_port":    resourceAgileLogicalPort(),
+				"agile_logical_router":  resourceAgileLogicalRouter(),
 			},
 		}
 

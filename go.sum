@@ -42,6 +42,8 @@ github.com/claranet/agilec-go-client v0.0.0-20220406111356-faa9de837173 h1:/f+hT
 github.com/claranet/agilec-go-client v0.0.0-20220406111356-faa9de837173/go.mod h1:xD7zeocXFzsMeveydEuXXva/QpLzoy3D0TCXA44Nhmo=
 github.com/claranet/agilec-go-client v0.0.0-20220602144143-da24c712198a h1:Hoh29NjmP2QFdDvu2yCZL/i0N8Bron/owlO3hfpA0Oo=
 github.com/claranet/agilec-go-client v0.0.0-20220602144143-da24c712198a/go.mod h1:xD7zeocXFzsMeveydEuXXva/QpLzoy3D0TCXA44Nhmo=
+github.com/claranet/agilec-go-client v0.0.0-20220629155826-5521be6504f7 h1:QOG+7LIw/ewwrdZmVSs31JO/n7/S6qsZo9IDO57It3g=
+github.com/claranet/agilec-go-client v0.0.0-20220629155826-5521be6504f7/go.mod h1:xD7zeocXFzsMeveydEuXXva/QpLzoy3D0TCXA44Nhmo=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cncf/udpa/go v0.0.0-20201120205902-5459f2c99403/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=

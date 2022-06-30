@@ -151,7 +151,7 @@ func resourceAgileLogicalNetworkRead(ctx context.Context, d *schema.ResourceData
 	}
 
 	_, errAttr := setLogicalNetworkAttributes(logicalNetwork, d)
-	if err != nil {
+	if errAttr != nil {
 		return diag.FromErr(errAttr)
 	}
 
@@ -251,7 +251,6 @@ func resourceAgileLogicalNetworkImport(ctx context.Context, d *schema.ResourceDa
 }
 
 func setLogicalNetworkAttributes(logicalNetwork *models.LogicalNetwork, d *schema.ResourceData) (*schema.ResourceData, error) {
-	//d.SetId(tenant.Id)
 	d.Set("name", *logicalNetwork.Name)
 	d.Set("description", *logicalNetwork.Description)
 	d.Set("tenant_id", *logicalNetwork.TenantId)
