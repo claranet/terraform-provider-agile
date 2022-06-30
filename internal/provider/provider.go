@@ -67,6 +67,7 @@ func New(version string) func() *schema.Provider {
 				"agile_dhcp_group":       dataSourceAgileDhcpGroup(),
 				"agile_tenant":           dataSourceAgileTenant(),
 				"agile_logical_network":  dataSourceAgileLogicalNetwork(),
+				"agile_logical_router":   dataSourceAgileLogicalRouter(),
 			},
 			ResourcesMap: map[string]*schema.Resource{
 				"agile_tenant":          resourceAgileTenant(),

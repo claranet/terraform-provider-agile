@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    agile = {
-      source  = "claranet/agile"
-      version = "0.0.1"
-    }
-  }
-}
-
-provider "agile" {
-  # Configuration options
-}
-
 resource "agile_logical_router" "example" {
   name             = "example"
   description      = "This Logical Router is created by terraform"

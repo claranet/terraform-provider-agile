@@ -73,7 +73,7 @@ func resourceAgileLogicalRouter() *schema.Resource {
 			"vrf_name": {
 				Type:        schema.TypeString,
 				Description: "VRF name.",
-				Optional:    true,
+				Required:    true,
 				ForceNew:    true,
 				ValidateDiagFunc: validation.ToDiagFunc(
 					validation.All(
@@ -85,8 +85,8 @@ func resourceAgileLogicalRouter() *schema.Resource {
 			"router_locations": {
 				Type:        schema.TypeSet,
 				Description: "Router Locations Settings.",
-				Optional:    true,
 				MaxItems:    1,
+				Required:    true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"fabric_id": {
@@ -324,23 +324,20 @@ func setLogicalRouterAttributes(logicalRouter *models.LogicalRouter, d *schema.R
 	d.Set("type", *logicalRouter.Type)
 
 	var routerLocations []interface{}
-	for _, location := range logicalRouter.RouterLocations {
-		var deviceGroups []interface{}
-		for _, deviceGroup := range location.DeviceGroup {
-			deviceGroups = append(deviceGroups, map[string]interface{}{
-				"device_id": *deviceGroup.DeviceId,
-				"device_ip": *deviceGroup.DeviceIp,
-			})
-		}
-
-		routerLocations = append(routerLocations, map[string]interface{}{
-			"fabric_role":  *location.FabricRole,
-			"fabric_id":    *location.FabricId,
-			"fabric_name":  *location.FabricName,
-			"device_group": deviceGroups,
+	var deviceGroups []interface{}
+	for _, deviceGroup := range logicalRouter.RouterLocations[0].DeviceGroup {
+		deviceGroups = append(deviceGroups, map[string]interface{}{
+			"device_id": *deviceGroup.DeviceId,
+			"device_ip": *deviceGroup.DeviceIp,
 		})
 	}
 
+	routerLocations = append(routerLocations, map[string]interface{}{
+		"fabric_role":  *logicalRouter.RouterLocations[0].FabricRole,
+		"fabric_id":    *logicalRouter.RouterLocations[0].FabricId,
+		"fabric_name":  *logicalRouter.RouterLocations[0].FabricName,
+		"device_group": deviceGroups,
+	})
 	d.Set("router_locations", routerLocations)
 	//if _, ok := d.GetOk("additional"); ok {
 	//	d.Set("additional", []interface{}{
