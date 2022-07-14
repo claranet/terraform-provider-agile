@@ -76,6 +76,7 @@ func resourceAgileLogicalSwitch() *schema.Resource {
 				Type:         schema.TypeString,
 				Description:  "MAC address of a logical switch.",
 				Optional:     true,
+				Computed:     true,
 				ValidateFunc: validation.IsMACAddress,
 			},
 			"tenant_id": {

@@ -6,6 +6,7 @@ FEATURES:
 * **New Resource:** `agile_logical_router`
 * **New Resource:** `agile_logical_switch`
 * **New Data Source:** `agile_logical_router`
+* **New Data Source:** `agile_logical_switch`
 
 BUG FIXES:
 * Fix tenant always deploying without any change
