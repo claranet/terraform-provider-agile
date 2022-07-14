@@ -1,4 +1,9 @@
 GOFMT_FILES?=$$(find . -name '*.go' |grep -v vendor)
+ACCTEST_PARALLELISM ?= 20
+
+ifneq ($(origin TESTS), undefined)
+	RUNARGS = -run='$(TESTS)'
+endif
 
 default: build
 
@@ -12,7 +17,7 @@ fmtcheck:
 
 # Run acceptance tests
 testacc: fmtcheck
-	TF_ACC=1 go test ./... -v $(TESTARGS) -timeout 120m
+	TF_ACC=1 go test ./... -v -parallel $(ACCTEST_PARALLELISM) $(RUNARGS) $(TESTARGS) -timeout 120m
 
 vet:
 	@echo "go vet ."

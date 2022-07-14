@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/ahl5esoft/golang-underscore v2.0.0+incompatible
-	github.com/claranet/agilec-go-client v0.0.0-20220629155826-5521be6504f7
+	github.com/claranet/agilec-go-client v0.0.0-20220712142405-5b31db886cb9
 	github.com/hashicorp/terraform-plugin-docs v0.7.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.14.0
 	github.com/jinzhu/copier v0.3.5

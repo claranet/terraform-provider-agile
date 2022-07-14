@@ -74,6 +74,7 @@ func New(version string) func() *schema.Provider {
 				"agile_logical_network": resourceAgileLogicalNetwork(),
 				"agile_logical_port":    resourceAgileLogicalPort(),
 				"agile_logical_router":  resourceAgileLogicalRouter(),
+				"agile_logical_switch":  resourceAgileLogicalSwitch(),
 			},
 		}
 

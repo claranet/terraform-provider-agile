@@ -48,7 +48,6 @@ func TestAccAgileLogicalRouter_Complete(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "vrf_name", *logicalRouterAttr.VrfName),
 					resource.TestCheckResourceAttr(resourceName, "vni", fmt.Sprint(*logicalRouterAttr.Vni)),
 					resource.TestCheckResourceAttr(resourceName, "logic_network_id", *logicalRouterAttr.LogicNetworkId),
-					resource.TestCheckResourceAttr(resourceName, "logic_network_id", *logicalRouterAttr.LogicNetworkId),
 					resource.TestCheckResourceAttr(resourceName, "router_locations.#", fmt.Sprint(len(logicalRouterAttr.RouterLocations))),
 					resource.TestCheckResourceAttr(resourceName, "router_locations.0.fabric_role", *logicalRouterAttr.RouterLocations[0].FabricRole),
 					resource.TestCheckResourceAttr(resourceName, "router_locations.0.fabric_id", *logicalRouterAttr.RouterLocations[0].FabricId),
