@@ -48,26 +48,45 @@ Full, comprehensive documentation is available on the Terraform website:
 
 https://registry.terraform.io/providers/claranet/agile/latest/docs
 
-##  Developing The Provider
+## Contributing
+
+### Quick Start
 
 If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (see [Requirements](#requirements) above).
 
 To compile the provider, run `make build`. This will build the provider and put the provider binary in the `$GOPATH/bin` directory.
 
-To generate or update documentation, run `make generate-docs`.
+### Testing the Provider
 
 In order to run the full suite of Acceptance tests, run `make testacc`.
-
-*Note:* Acceptance tests create real resources, and often cost money to run.
 
 ```sh
 $ make testacc
 ```
 
-### Using Provider Local
+Tests can then be run by specifying a regular expression defining the tests to run:
 
-```shell
-export TERRAFORM_AGILE_VERSION=0.0.1
-make build-local
-terraform init -plugin-dir=${HOME}/.terraform.d/plugin-cache
+```sh
+$ make testacc TESTS=TestAccAgileTenant_Basic
 ```
+
+*Note:* Acceptance tests create real resources, and often cost money to run.
+
+### Using the Provider
+
+With Terraform v0.14 and later, [development overrides for provider developers](https://www.terraform.io/docs/cli/config/config-file.html#development-overrides-for-provider-developers) can be leveraged in order to use the provider built from source.
+
+To do this, populate a Terraform CLI configuration file (`~/.terraformrc` for all platforms other than Windows; `terraform.rc` in the `%APPDATA%` directory when using Windows) with at least the following options:
+
+```hcl
+provider_installation {
+  dev_overrides {
+    "claranet/agile" = "[REPLACE WITH GOPATH]/bin"
+  }
+  direct {}
+}
+```
+
+### Generate Docs
+
+To generate or update documentation, run `make generate-docs`.

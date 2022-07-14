@@ -37,8 +37,4 @@ errcheck:
 generate-docs:
 	go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
 
-# Deploy Local
-build-local: build
-	mv ${GOPATH}/bin/terraform-provider-agile ~/.terraform.d/plugin-cache/registry.terraform.io/claranet/agile/${TERRAFORM_AGILE_VERSION}/linux_amd64/terraform-provider-agile_v${TERRAFORM_AGILE_VERSION}
-
-.PHONY: build fmtcheck testacc build-local vet fmt errcheck generate-docs
+.PHONY: build fmtcheck testacc vet fmt errcheck generate-docs
