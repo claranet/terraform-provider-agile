@@ -1,3 +1,21 @@
+terraform {
+  required_providers {
+    agile = {
+      source = "claranet/agile"
+      version = "0.0.1"
+    }
+  }
+}
+
+
+provider "agile" {
+  allow_insecure = true
+  api_url = "https://10.114.70.215:18002"
+  password = "Awsome1#"
+  username = "Orquestrador"
+}
+
+
 resource "agile_tenant" "example" {
   name        = "example"
   description = "This tenant is created by terraform"
